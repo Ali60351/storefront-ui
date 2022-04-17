@@ -1,5 +1,5 @@
-<div>
+<div class="container">
   <div *ngFor="let product of products">
-    <span>{{ product.id }}</span>
+    <app-product-item [product]="product"></app-product-item>
   </div>
 </div>

@@ -1,10 +1,16 @@
 <div class="container">
-  <img *ngIf="product.url" [src]="product.url" [alt]="product.name">
+  <a routerLink="/product/{{ product.id }}">
+    <img
+      *ngIf="product.url"
+      [src]="product.url"
+      [alt]="product.name"
+    >
+  </a>
   {{ product.name }}
   <span>
     ${{ product.price }}
   </span>
-  <select name="quantity" [id]="'product-quantity-' + product.id">
+  <select name="quantity" id="product-quantity-{{ product.id }}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>

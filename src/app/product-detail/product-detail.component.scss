@@ -1,8 +1,8 @@
 .container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 32px;
+  margin-left: 15%;
 
   img {
     width: 100%;
@@ -41,4 +41,10 @@
       border-color: aqua;
     }
   }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

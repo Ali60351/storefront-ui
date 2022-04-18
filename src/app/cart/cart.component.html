@@ -1,0 +1,8 @@
+<div>
+  <div *ngFor="let cartItem of cart">
+    <app-cart-item item="cart"></app-cart-item>
+  </div>
+  <div>
+    Total: ${{ getTotal() }}
+  </div>
+</div>

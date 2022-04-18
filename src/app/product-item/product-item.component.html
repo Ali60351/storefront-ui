@@ -10,12 +10,18 @@
   <span>
     ${{ product.price }}
   </span>
-  <select name="quantity" id="product-quantity-{{ product.id }}">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <button>Add to cart</button>
+  <form class="container" (ngSubmit)="handleSubmit()">
+    <select
+      name="quantity"
+      id="product-quantity-{{ product.id }}"
+      [(ngModel)]="quantity"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button type="submit">Add to cart</button>
+  </form>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../cart.service';
 import { Product } from '../models/product';
 import { ProductService } from '../product.service';
 
@@ -10,8 +11,9 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
+  quantity: string = '1';
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
     this.product = {
       id: -1,
       name: '',
@@ -35,4 +37,7 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
+  handleSubmit(): void {
+    this.cartService.add(this.product, Number(this.quantity));
+  }
 }

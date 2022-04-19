@@ -6,7 +6,7 @@
       (quantityUpdate)="handleQuantityUpdate($event, cartItem.product)"
       (remove)="handleRemove(cartItem.product)"
     ></app-cart-item>
-    <div class="price">
+    <div *ngIf="cart.length" class="price">
       Total: ${{ getTotal() }}
     </div>
   </div>

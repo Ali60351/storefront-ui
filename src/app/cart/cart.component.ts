@@ -34,6 +34,10 @@ export class CartComponent implements OnInit {
   handleRemove(product: Product) {
     this.cartService.delete(product);
     this.cart = this.cartService.fetch()
+
+    if (!this.cart.length) {
+      this.router.navigate(['/']);
+    }
   }
 
   handleSubmit() {

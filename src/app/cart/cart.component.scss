@@ -1,4 +1,8 @@
 .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+
   .items {
     display: flex;
     flex-direction: column;
@@ -8,4 +12,41 @@
 
 .price {
   font-size: 48px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  label {
+    display: block;
+    font-size: 24px;
+  }
+
+  input {
+    min-width: 300px;
+    padding: 4px;
+  }
+
+  button {
+    background-color: #eee;
+    padding: 8px 16px;
+    border: 2px solid #666;
+    border-radius: 8px;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: 0.2s all ease;
+
+    &:hover:not(:disabled) {
+      background-color: #fff;
+      border-color: aqua;
+    }
+
+    &:disabled {
+      background-color: #bbb;
+    }
+  }
 }

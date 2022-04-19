@@ -10,4 +10,37 @@
       Total: ${{ getTotal() }}
     </div>
   </div>
+  <form #f="ngForm" class="form" (ngSubmit)="handleSubmit()">
+    <div>
+      <label>Full Name</label>
+      <input
+        name="fullName"
+        placeholder="Minimum 6 characters"
+        [(ngModel)]="fullName"
+        required
+        minlength="6"
+      />
+    </div>
+    <div>
+      <label>Address</label>
+      <input
+        name="address"
+        placeholder="Minimum 12 characters"
+        [(ngModel)]="address"
+        required
+        minlength="12"
+      />
+    </div>
+    <div>
+      <label>Credit Card Number</label>
+      <input
+        name="card"
+        placeholder="Valid credit cart (without dashes)"
+        [(ngModel)]="creditCard"
+        required
+        pattern="\d{16}"
+      />
+    </div>
+    <button [disabled]="f.invalid">Submit</button>
+  </form>
 </div>

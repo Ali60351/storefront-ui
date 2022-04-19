@@ -11,6 +11,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     HeaderComponent,
     ProductDetailComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

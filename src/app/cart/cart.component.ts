@@ -11,6 +11,10 @@ import { Product } from '../models/product';
 export class CartComponent implements OnInit {
   cart: Array<CartItem> = [];
 
+  fullName: string = '';
+  address: string = '';
+  creditCard: string = '';
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -29,5 +33,9 @@ export class CartComponent implements OnInit {
   handleRemove(product: Product) {
     this.cartService.delete(product);
     this.cart = this.cartService.fetch()
+  }
+
+  handleSubmit() {
+
   }
 }

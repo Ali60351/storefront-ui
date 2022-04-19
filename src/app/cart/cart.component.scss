@@ -1,0 +1,11 @@
+.container {
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.price {
+  font-size: 48px;
+}

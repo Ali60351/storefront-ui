@@ -1,8 +1,13 @@
-<div>
-  <div *ngFor="let cartItem of cart">
-    <app-cart-item item="cart"></app-cart-item>
-  </div>
-  <div>
-    Total: ${{ getTotal() }}
+<div class="container">
+  <div class="items">
+    <app-cart-item
+      *ngFor="let cartItem of cart"
+      [item]="cartItem"
+      (quantityUpdate)="handleQuantityUpdate($event, cartItem.product)"
+      (remove)="handleRemove(cartItem.product)"
+    ></app-cart-item>
+    <div class="price">
+      Total: ${{ getTotal() }}
+    </div>
   </div>
 </div>

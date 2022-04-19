@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CartItem } from '../models/cart-item';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,17 @@ export class CartComponent implements OnInit {
     this.cart = this.cartService.fetch()
   }
 
-  getTotal(): number {
-    return this.cart.map(item => item.product.price).reduce((a, b) => a + b);
+  getTotal(): string {
+    return this.cart.map(item => item.product.price).reduce((a, b) => a + b).toFixed(2);
+  }
+
+  handleQuantityUpdate(event: Event, product: Product) {
+    const target = event.target as HTMLInputElement;
+    this.cartService.update(product, Number(target.value));
+  }
+
+  handleRemove(product: Product) {
+    this.cartService.delete(product);
+    this.cart = this.cartService.fetch()
   }
 }

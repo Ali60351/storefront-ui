@@ -43,6 +43,13 @@ export class CartService {
     ];
 
     this.sync();
-    alert(`${product.name} entry successfully cart`);
+    alert(`${product.name} entry successfully updated`);
+  }
+
+  delete(product: Product): void {
+    this.cart = this.cart.filter(cartItem => cartItem.product.id !== product.id);
+
+    this.sync();
+    alert(`${product.name} entry successfully removed from cart`);
   }
 }

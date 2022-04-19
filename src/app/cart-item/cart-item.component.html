@@ -1,1 +1,23 @@
-<p>cart-item works!</p>
+<div class="container">
+  <div>
+    <img [src]="item.product.url" [alt]="item.product.name" />
+  </div>
+  <div class="details">
+    <div class="title">
+      <span>
+        {{ item.product.name }}
+      </span>
+      <button (click)="remove.emit()">Discard</button>
+    </div>
+    <div>${{ item.product.price }}</div>
+    <div>
+      Amount: <input
+        type="number"
+        [value]="item.quantity"
+        min="1"
+        max="5"
+        (change)="quantityUpdate.emit($event)"
+      />
+    </div>
+  </div>
+</div>

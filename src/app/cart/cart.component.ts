@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
@@ -15,14 +16,14 @@ export class CartComponent implements OnInit {
   address: string = '';
   creditCard: string = '';
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cart = this.cartService.fetch()
   }
 
   getTotal(): string {
-    return this.cart.map(item => item.product.price).reduce((a, b) => a + b).toFixed(2);
+    return this.cart.map(item => item.product.price * item.quantity).reduce((a, b) => a + b).toFixed(2);
   }
 
   handleQuantityUpdate(event: Event, product: Product) {
@@ -36,6 +37,8 @@ export class CartComponent implements OnInit {
   }
 
   handleSubmit() {
-
+    this.router.navigate(
+      ['/success', { name: this.fullName, total: this.getTotal() }]
+    )
   }
 }

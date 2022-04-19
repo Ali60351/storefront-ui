@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-thank-you',
@@ -9,9 +10,12 @@ export class ThankYouComponent implements OnInit {
   name: string = '';
   total: number = 0;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(data => {
+      this.name = data['name'];
+      this.total = Number(data['total'])
+    })
   }
-
 }

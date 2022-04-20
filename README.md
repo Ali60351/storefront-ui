@@ -1,5 +1,7 @@
 # Storefront UI
 
+Frontend for a storefront app. Capable of product viewing and cart management.
+
 ## Routes
 
 | Route | Purpose |
